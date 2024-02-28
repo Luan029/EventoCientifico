@@ -1,0 +1,21 @@
+.button {
+
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    padding: 10px;
+    box-shadow: 1px 1px 5px #0000009e;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    outline: 'none';
+    &:hover {
+        box-shadow: 1px 1px 6px #00000080;
+    }
+}
+
+@media (max-width: 770px) {
+    .button {
+        font-size: .9rem;
+    }
+}
