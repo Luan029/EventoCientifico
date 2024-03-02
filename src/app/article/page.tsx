@@ -1,5 +1,5 @@
 "use client";
-import { ChangeEvent, useEffect, useState, useRef } from 'react';
+import { ChangeEvent, useState, useRef } from 'react';
 import Confirm from "@/components/alerts/confirm";
 import Erro from "@/components/alerts/erro";
 import Sucess from "@/components/alerts/sucess";
@@ -8,6 +8,9 @@ import Styles from './Styles.module.scss'
 import Header from '@/components/header/Header';
 import Image from 'next/image';
 import Cloud from '@/imgs/cloud-upload.png'
+import Clock from '@/components/clock/Clock';
+import Footer from '@/components/footer/Footer';
+import { FaTrash } from "react-icons/fa";
 
 export default function RegisterArticles() {
 
@@ -57,6 +60,7 @@ export default function RegisterArticles() {
                 }
                 const count = parseInt(localStorage.getItem('formArticleCount') ?? '0', 10);
                 localStorage.setItem('formArticleCount', (count + 1).toString());
+                console.log(formData.file)
                 Sucess.cadastro();
                 setFormData({
                     nome: '',
@@ -67,21 +71,20 @@ export default function RegisterArticles() {
         });
     }
 
-    const [hour, setHour] = useState(new Date().getHours());
+    const hour = Clock()
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setHour(new Date().getHours());
-        }, 60000)
-
-        return () => clearInterval(interval)
-    }, [])
+    const removeArticle = () =>{
+        setFormData(prevState => ({
+            ...prevState,
+            file: null
+        }));
+    }
 
     return (
         <>
             <Header title='Submissão de Artigo' />
             <main className={Styles.userRegistration}>
-                <section className={`${Styles.formRegister} ${hour >= 6 && hour < 15 ? Styles.day : Styles.night}`}>
+                <section className={`${Styles.formRegister} ${hour >= 6 && hour < 18 ? Styles.day : Styles.night}`}>
                     <div className={Styles.headerSection}>
                         <h2>Submeta seu Artigo</h2>
                         <p>Forneça as credenciais necessárias para realizar a submissão do artigo.</p>
@@ -115,8 +118,7 @@ export default function RegisterArticles() {
                                     alt='cloud' width={80}
                                     height={80} />
                             </section>
-                            <label
-                                htmlFor="file-selector"
+                            <label htmlFor="file-selector"
                                 className={Styles.fileSelector}
                                 onClick={handleFileSelectorClick}>Buscar Artigo<input
                                     type="file"
@@ -125,14 +127,17 @@ export default function RegisterArticles() {
                                     ref={fileInputRef}
                                     className={Styles.fileSelectorInput} />
                             </label>
+                            {formData.file != null ? <p className={Styles.nameArticle}>{formData.file.name} <i ><FaTrash onClick={removeArticle}/></i> </p> : ''}
+
                         </div>
                         <div className={Styles.buttonsRegister}>
                             <Button text='Cancelar' color='#7C8EA6' link='/' type='button' />
-                            <Button text='Enviar Inscrição' color="black" type='submit' />
+                            <Button text='Submeter' color="black" type='submit' />
                         </div>
                     </form>
                 </section>
             </main>
+            <Footer />
         </>
     )
 }

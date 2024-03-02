@@ -1,11 +1,13 @@
 "use client";
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 import Confirm from "@/components/alerts/confirm";
 import Erro from "@/components/alerts/erro";
 import Sucess from "@/components/alerts/sucess";
 import Button from "@/components/button/Button";
 import Styles from './Styles.module.scss'
 import Header from '@/components/header/Header';
+import Clock from '@/components/clock/Clock';
+import Footer from '@/components/footer/Footer';
 
 export default function Registrations() {
 
@@ -55,20 +57,12 @@ export default function Registrations() {
             }
         })
     }
-    const [hour, setHour] = useState(new Date().getHours());
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setHour(new Date().getHours());
-        }, 60000)
-
-        return () => clearInterval(interval)
-    }, [])
+    const hour = Clock()
     return (
         <>
             <Header title='Página de Inscrição'/>
             <main className={Styles.userRegistration}>
-                <section className={`${Styles.formRegister} ${hour >= 6 && hour < 15 ? Styles.day : Styles.night}`}>
+                <section className={`${Styles.formRegister} ${hour >= 6 && hour < 18 ? Styles.day : Styles.night}`}>
                     <div className={Styles.headerSection}>
                         <h2>Preencha as Informações</h2>
                         <p>Forneça as credenciais necessárias para realizar sua inscrição.</p>
@@ -86,11 +80,12 @@ export default function Registrations() {
                         </label>
                         <div className={Styles.buttonsRegister}>
                             <Button text='Cancelar' color='#7C8EA6' link='/' type='button' />
-                            <Button text='Enviar Inscrição' color="black" type='submit' />
+                            <Button text='Inscrever' color="black" type='submit' />
                         </div>
                     </form>
                 </section>
             </main>
+            <Footer/>
         </>
     )
 }

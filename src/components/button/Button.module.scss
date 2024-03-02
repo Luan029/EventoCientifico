@@ -19,3 +19,13 @@
         font-size: .9rem;
     }
 }
+@media screen and (max-width: 460px){
+    .button{
+        font-size: .8rem;
+    }
+}
+@media screen and (max-width: 260px){
+    .button{
+        font-size: .7rem;
+    }
+}

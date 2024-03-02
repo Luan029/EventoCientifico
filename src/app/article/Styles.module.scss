@@ -11,6 +11,8 @@ $cor6: #010326;
     justify-content: center;
     min-height: 100vh;
     max-width: 100vw;
+    padding: 80px 60px;
+    box-sizing: border-box;
 
     .formRegister {
         display: flex;
@@ -82,6 +84,7 @@ $cor6: #010326;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
+                gap: 10px;
                 width: 100%;
         
                 .cloudIcon {
@@ -99,7 +102,11 @@ $cor6: #010326;
                         display: none;
                     }
                 }
-                
+                .nameArticle{
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                }
             }
         }
     }
@@ -122,6 +129,9 @@ $cor6: #010326;
                     background-color: $cor3;
                     
                 }
+                .fileSelector:hover{
+                    background-color: $cor2;
+                }
             }
         }
     }
@@ -142,8 +152,42 @@ $cor6: #010326;
                 .fileSelector{
                     background-color: $cor6;
                 }
+                .fileSelector:hover{
+                    background-color: $cor5;
+                }
             }
         }
     }
 
+}
+@media screen and (max-width: 460px){
+    .userRegistration{
+        padding: 80px 20px;
+        .formRegister{
+            max-width: 95vw;
+            .headerSection{
+                h2{
+                    font-size: 1.1rem;
+                }
+                p{
+                    font-size: .8rem;
+                }
+            }
+            form{
+                margin-top: 10px;
+                label .col{
+                    font-size: .8rem;
+                }
+
+                .col {
+                    .fileSelector{
+                        font-size: .8rem;
+                    }
+                }
+                .buttonsRegister{
+                    justify-content: space-between;
+                }
+            }
+        }
+    }
 }

@@ -103,3 +103,30 @@ $cor6: #010326;
     }
 
 }
+@media screen and (max-width: 460px){
+    .userRegistration{
+        padding: 80px 20px;
+        .formRegister{
+            max-width: 95vw;
+            .headerSection{
+                h2{
+                    font-size: 1.1rem;
+                }
+                p{
+                    font-size: .8rem;
+                }
+            }
+            form{
+                margin-top: 10px;
+                label {
+                    font-size: .8rem;
+                }
+
+               
+                .buttonsRegister{
+                    justify-content: space-between;
+                }
+            }
+        }
+    }
+}
