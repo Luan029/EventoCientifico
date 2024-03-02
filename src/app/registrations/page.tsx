@@ -5,6 +5,7 @@ import Erro from "@/components/alerts/erro";
 import Sucess from "@/components/alerts/sucess";
 import Button from "@/components/button/Button";
 import Styles from './Styles.module.scss'
+import Header from '@/components/header/Header';
 
 export default function Registrations() {
 
@@ -24,23 +25,33 @@ export default function Registrations() {
         }))
 
     }
-
     const handleSubmit = (event: { preventDefault: () => void; }) => {
         event.preventDefault()
         Confirm.cadastrar().then(async (result) => {
             if (result.isConfirmed) {
 
-                if (formData.nome && formData.email && formData.afiliacoes) {
-                    Sucess.cadastro()
-                    console.log(formData)
-                    setFormData({
-                        nome: '',
-                        email: '',
-                        afiliacoes: ''
-                    });
+                if (!formData.nome || !formData.email || !formData.afiliacoes) {
+                    Erro.erro('Preencha as Informações para realizar inscrição.')
                     return
                 }
-                Erro.erro('Preencha as Informações para realizar inscrição.')
+
+                localStorage.setItem('formData', JSON.stringify(formData));
+
+                const formDataSalvo = localStorage.getItem('formData');
+                if (!formDataSalvo) {
+                    Erro.erro('Erro ao salvar os dados, preencha novamente.')
+                    return
+                }
+
+                const count = parseInt(localStorage.getItem('formCount') ?? '0', 10);
+                localStorage.setItem('formCount', (count + 1).toString());
+                Sucess.cadastro()
+                setFormData({
+                    nome: '',
+                    email: '',
+                    afiliacoes: ''
+                });
+
             }
         })
     }
@@ -54,29 +65,32 @@ export default function Registrations() {
         return () => clearInterval(interval)
     }, [])
     return (
-        <section className={Styles.userRegistration}>
-            <section className={`${Styles.formRegister} ${hour >= 6 && hour < 18 ? Styles.day : Styles.night }`}>
-                <div className={Styles.headerSection}>
-                    <h2>Preencha as Informações</h2>
-                    <p>Forneça as credenciais necessárias para realizar sua inscrição.</p>
-                    <p>Nota: Todas as informações são obrigatórias e não é permitido cadastrar caracteres especiais nos campos.</p>
-                </div>
-                <form onSubmit={handleSubmit}>
-                    <label >
-                        Nome<input type="text" name="nome" value={formData.nome} onChange={handleChange} />
-                    </label>
-                    <label >
-                        Email<input type="email" name="email" value={formData.email} onChange={handleChange} />
-                    </label>
-                    <label >
-                        Afiliação<input type="text" name="afiliacoes" value={formData.afiliacoes} onChange={handleChange} />
-                    </label>
-                    <div className={Styles.buttonsRegister}>
-                        <Button text='Enviar Inscrição' color={hour >= 6 && hour < 18 ? "#F2921D" : "#020659"} type='submit' />
-                        <Button text='Página do Participante' color={hour >=6 && hour < 9 ? "#F2921D" : "#020659"} link='/registrations' type='button'/>
+        <>
+            <Header title='Página de Inscrição'/>
+            <main className={Styles.userRegistration}>
+                <section className={`${Styles.formRegister} ${hour >= 6 && hour < 15 ? Styles.day : Styles.night}`}>
+                    <div className={Styles.headerSection}>
+                        <h2>Preencha as Informações</h2>
+                        <p>Forneça as credenciais necessárias para realizar sua inscrição.</p>
+                        <p>Nota: Todas as informações são obrigatórias e não é permitido cadastrar caracteres especiais nos campos.</p>
                     </div>
-                </form>
-            </section>
-        </section>
+                    <form onSubmit={handleSubmit}>
+                        <label >
+                            Nome<input type="text" name="nome" value={formData.nome} onChange={handleChange} />
+                        </label>
+                        <label >
+                            Email<input type="email" name="email" value={formData.email} onChange={handleChange} />
+                        </label>
+                        <label >
+                            Afiliação<input type="text" name="afiliacoes" value={formData.afiliacoes} onChange={handleChange} />
+                        </label>
+                        <div className={Styles.buttonsRegister}>
+                            <Button text='Cancelar' color='#7C8EA6' link='/' type='button' />
+                            <Button text='Enviar Inscrição' color="black" type='submit' />
+                        </div>
+                    </form>
+                </section>
+            </main>
+        </>
     )
 }

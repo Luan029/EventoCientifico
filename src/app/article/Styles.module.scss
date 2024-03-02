@@ -4,6 +4,7 @@ $cor3: #F27405;
 $cor4: #084F8C;
 $cor5: #020659;
 $cor6: #010326;
+
 .userRegistration {
     display: flex;
     align-items: center;
@@ -20,7 +21,7 @@ $cor6: #010326;
         border: 1px solid #ffffff;
         background-color: #fff;
         padding: 10px;
-        min-height: 70vh;
+        min-height: 80vh;
         max-width: 60vw;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
         box-sizing: border-box;
@@ -61,11 +62,13 @@ $cor6: #010326;
                 input {
                     width: 100%;
                     box-sizing: border-box;
-
                     height: 30px;
                     outline: none;
+                    border: none;   
+                }
+                textarea{
+                    outline: none;
                     border: none;
-                    
                 }
             }
             .buttonsRegister{
@@ -73,6 +76,30 @@ $cor6: #010326;
                 width: 100%;
                 justify-content: flex-end;
                 gap: 10px;
+            }
+            
+            .col {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                width: 100%;
+        
+                .cloudIcon {
+                    text-align: center;
+                }
+                .fileSelector {
+                    color: #ffffff;
+                    padding: 10px;
+                    border: none;
+                    border-radius: 4px;
+                    text-align: center;
+                    cursor: pointer;
+
+                    .fileSelectorInput {
+                        display: none;
+                    }
+                }
+                
             }
         }
     }
@@ -86,6 +113,15 @@ $cor6: #010326;
                 input{
                     border-bottom: 1px solid $cor3;
                 }
+                textarea{
+                    border: 1px solid $cor3;
+                }
+            }
+            .col{
+                .fileSelector{
+                    background-color: $cor3;
+                    
+                }
             }
         }
     }
@@ -97,6 +133,14 @@ $cor6: #010326;
             label{
                 input{
                     border-bottom: 1px solid $cor5;
+                }
+                textarea{
+                    border: 1px solid $cor5;
+                }
+            }
+            .col{
+                .fileSelector{
+                    background-color: $cor6;
                 }
             }
         }

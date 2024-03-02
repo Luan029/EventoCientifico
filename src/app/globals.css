@@ -1,4 +1,12 @@
+@font-face {
+    font-family: 'Leckerli One';
+    src: url('../fonts/LeckerliOne-Regular.ttf') format('truetype');
+}
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #e1e6faed;
 }

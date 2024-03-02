@@ -16,6 +16,7 @@ $cor6: #010326;
         width: 100%;
         min-height: 60vh;
         border-radius: 0px 0px 50% 50%;
+        box-shadow: 1px 1px 5px #0000009e;
         text-align: center;
         display: flex;
         flex-direction: column;
@@ -42,7 +43,8 @@ $cor6: #010326;
         min-height: 40vh;
         display: flex;
         align-items: center;
-        justify-content: center;
+        gap: 10px;
+        justify-content: space-around;
         
         button{
             background-color: $cor2;
@@ -57,6 +59,33 @@ $cor6: #010326;
         button:hover{
             cursor: pointer;
             background-color: $cor1;
+        }
+    }
+}
+@media screen and (max-width: 500px){
+    .eventDescription{
+        .description{
+            h1{
+                font-size: 1.4rem;
+            }
+            h3{
+                font-size: 1rem;
+            }
+        }
+    }
+}
+@media screen and (max-width: 300px){
+    .eventDescription{
+        .description{
+            h1{
+                font-size: 1.1rem;
+            }
+            h3{
+                font-size: .7rem;
+            }
+        }
+        .register{
+            flex-direction: column;
         }
     }
 }

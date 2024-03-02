@@ -1,0 +1,59 @@
+$cor1: #F2AE2E;
+$cor2: #F2921D;
+$cor3: #F27405;
+$cor4: #084F8C;
+$cor5: #020659;
+$cor6: #010326;
+
+.header {
+    display: flex;
+    max-width: 100vw;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    color: white;
+    padding: 10px 30px;
+    box-sizing: border-box;
+
+    .logo {
+        .link {
+            text-decoration: none;
+            color: white;
+
+            font-family: "Leckerli One", cursive;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 2.4rem;
+        }
+    }
+
+    .aux {
+        background-color: red;
+        width: 15%;
+    }
+}
+
+.day {
+
+    background-color: $cor2;
+
+}
+
+.night {
+    background-color: $cor5;
+
+
+}
+
+@media screen and (max-width: 1000px) {
+    .header {
+        flex-direction: column;
+
+        .title {
+            h1 {
+                font-size: 1.2rem;
+            }
+        }
+
+    }
+}

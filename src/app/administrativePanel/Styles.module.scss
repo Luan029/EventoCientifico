@@ -1,0 +1,75 @@
+.adminstrativePanel{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    max-width: 100vw;
+    
+    .panel{
+        display: flex;
+        justify-content: space-around;
+        min-height: 50vh;
+        min-width: 50vw;
+        border-radius: 9px;
+        border: 1px solid #ffffff;
+        background-color: #fff;
+        padding: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+        box-sizing: border-box;
+        .panels{
+            background-color: #2B2E33;
+            width: 40%;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #fff;
+            h2{
+                text-align: center;
+                font-size: 1.4rem;
+            }
+            p{
+                font-size: 8rem;
+                margin-top: 25%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1000px){
+    .adminstrativePanel{
+        .panel{
+            min-height: 40vh;
+            min-width: 80vw;
+            .panels{
+                min-height: 45%;
+                h2{
+                    font-size: 1.1rem;
+                }
+                p{  
+                    margin-top: 30%;
+                    font-size: 6rem;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 500px){
+    .adminstrativePanel{
+        .panel{
+            min-height: 60vh;
+            flex-direction: column;
+            align-items: center;
+            .panels{
+                width: 100%;
+                h2{
+                    font-size: .8rem;
+                }
+                p{  
+                    margin-top: auto;
+                    font-size: 4rem;
+                }
+            }
+        }
+    }
+}
