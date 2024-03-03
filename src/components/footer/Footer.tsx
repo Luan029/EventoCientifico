@@ -6,7 +6,7 @@ import Link from "next/link"
 export default function Footer() {
     const hour = Clock()
     return (
-        <footer className={`${Styles.footer} ${hour >= 6 && hour < 18 ? Styles.day : Styles.night}`}>
+        <footer className={`${Styles.footer} ${hour >= 6 && hour < 11 ? Styles.day : Styles.night}`}>
             <span>
                 Desenvolvido e entregue por <strong>dev <span className={Styles.text}>L</span>uan</strong>
             </span>

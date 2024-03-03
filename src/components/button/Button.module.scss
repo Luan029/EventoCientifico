@@ -1,5 +1,4 @@
 .button {
-
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -12,6 +11,9 @@
     &:hover {
         box-shadow: 1px 1px 6px #00000080;
     }
+}
+.day{
+    background-color: red;
 }
 
 @media (max-width: 770px) {

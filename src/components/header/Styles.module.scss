@@ -35,7 +35,6 @@ $cor6: #010326;
 
     }
     .aux {
-        height: 20%;
         width: 15%;
         display: flex;
         justify-content: flex-end;
@@ -94,15 +93,17 @@ $cor6: #010326;
 @media screen and (max-width: 1000px) {
     .header {
         flex-direction: column;
+        gap: 10px;
         .logo{
             width: 100%;
+            height: 45%;
             display: flex;
             align-items: center;
             justify-content: center;
         }
         .title {
             width: 100%;
-
+            height: 45%;
             h1, .aux .linkPanel{
                 font-size: 1.2rem;
             }

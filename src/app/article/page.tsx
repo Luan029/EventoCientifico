@@ -84,7 +84,7 @@ export default function RegisterArticles() {
         <>
             <Header title='Submissão de Artigo' />
             <main className={Styles.userRegistration}>
-                <section className={`${Styles.formRegister} ${hour >= 6 && hour < 18 ? Styles.day : Styles.night}`}>
+                <section className={`${Styles.formRegister} ${hour >= 6 && hour < 11 ? Styles.day : Styles.night}`}>
                     <div className={Styles.headerSection}>
                         <h2>Submeta seu Artigo</h2>
                         <p>Forneça as credenciais necessárias para realizar a submissão do artigo.</p>
@@ -131,8 +131,8 @@ export default function RegisterArticles() {
 
                         </div>
                         <div className={Styles.buttonsRegister}>
-                            <Button text='Cancelar' color='#7C8EA6' link='/' type='button' />
-                            <Button text='Submeter' color="black" type='submit' />
+                            <Button text='Cancelar' link='/' type='button' />
+                            <Button text='Submeter' type='submit' />
                         </div>
                     </form>
                 </section>

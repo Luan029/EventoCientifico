@@ -4,105 +4,176 @@ $cor3: #F27405;
 $cor4: #084F8C;
 $cor5: #020659;
 $cor6: #010326;
+$cor7: #333333;
+$cor8: #E0B892;
+
 
 .eventDescription {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     max-width: 100vw;
-    min-height: 100vh;
+    height: 100vh;
+    padding: 0 20px;
     box-sizing: border-box;
-
     .description {
-        width: 100%;
-        min-height: 60vh;
-        border-radius: 0px 0px 50% 50%;
-        box-shadow: 1px 1px 5px #0000009e;
+        max-width: 100%;
         text-align: center;
         display: flex;
         flex-direction: column;
-        color: #fff;
         align-items: center;
-        justify-content: center;
-
-        h1{
-            font-size: 1.6rem;
-            max-width: 90%;
-        }
-        h3{
-            margin-top: 20px;
-            max-width: 70%;
-        }
-    }
-    .day{
-        background-image: linear-gradient(to bottom right, #{$cor1}, #{$cor2}, #{$cor3});
-    }
-    .night{
-        background-image: linear-gradient(to bottom right, #{$cor4}, #{$cor5}, #{$cor6});
-    }
-    .register{
-        min-height: 40vh;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        justify-content: space-around;
+        margin-bottom: 50px;
+        box-sizing: border-box;
         
-        button{
-            background-color: $cor2;
-            color: #fff;
-            padding: 10px;
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        h3 {
+            font-size: 1.2rem;
+            max-width: 70%;
+            .climate{
+                padding: 4px;
+                border-radius: 2px;
+            }
+        }
+    }
+    .register {
+        max-width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        box-sizing: border-box;
+        button {
+            padding: 20px;
             border: none;
             border-radius: 5px;
-            font-size: 1.2rem;
-            box-shadow: 1px 1px 5px #0000009e;
-
-        }
-        button:hover{
+            font-size: 1.3rem;
             cursor: pointer;
-            background-color: $cor1;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+            font-weight: bold;
         }
     }
 }
-@media screen and (max-width: 600px){
-    .eventDescription{
-        .description{
-            border-radius: 0px 0px 40% 40%;
+
+
+.day {
+    background-color: $cor2;
+    .description{
+        h1{
+            color: $cor7;
+        }
+        h3{
+            color: #4e4d4d;
+            .climate {
+                background-color: #333333;
+                color: $cor3;
+            }
         }
     }
-} 
-@media screen and (max-width: 500px){
+    .register{
+        button{
+            background-color: #fff;
+
+            color: #333;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        button:hover{
+            background-color: #333;
+            color: $cor2;
+        }
+    }
+}
+
+// Estilo para modo noite
+.night {
+    background-color: $cor5;
+    .description{
+        h1{
+            color: $cor8;
+        }
+        h3{
+            color: #bb9e84;
+            .climate {
+                background-color: $cor4;
+                
+                color: $cor8;
+            }
+        }
+    }
+    .register{
+        button{
+            color: $cor4;
+            background-color: #fff;
+        }
+        button:hover{
+            background-color: $cor4;
+            color: #E0B892;
+        }
+    }
+}
+
+@media screen and (max-width: 430px){
+
     .eventDescription{
         .description{
-            border-radius: 0px 0px 30% 30%;
-
             h1{
-                font-size: 1.4rem;
+                font-size: 2.1rem;
             }
             h3{
-                font-size: 1rem;
+                font-size: 0.9rem;
+                max-width: 85%;
                 text-align: justify;
             }
         }
-    }
-}
-@media screen and (max-width: 360px){
-    .eventDescription{
         .register{
-            flex-direction: column;
+            button{
+                font-size: .9rem;
+            }
         }
     }
+
 }
-@media screen and (max-width: 300px){
+@media screen and (max-width: 290px){
+
     .eventDescription{
         .description{
-            border-radius: 0px 0px 20% 20%;
-
             h1{
-                font-size: 1.1rem;
+                font-size: 1.9rem;
+            }
+            h3{
+                font-size: .8rem;
+                max-width: 90%;
+            }
+        }
+        .register{
+            button{
+                font-size: .8rem;
+            }
+        }
+    }
+
+}
+@media screen and (max-width: 220px){
+
+    .eventDescription{
+        .description{
+            h1{
+                font-size: 1.5rem;
             }
             h3{
                 font-size: .7rem;
+                max-width: 90%;
             }
         }
-        
+        .register{
+            button{
+                font-size: .7rem;
+            }
+        }
     }
+
 }

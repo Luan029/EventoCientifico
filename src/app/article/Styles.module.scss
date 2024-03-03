@@ -78,6 +78,21 @@ $cor6: #010326;
                 width: 100%;
                 justify-content: flex-end;
                 gap: 10px;
+
+                button[type='button']{
+                    background-color:#7C8EA6;
+                }
+                button[type='submit']{
+                    background-color: #000;
+                }
+                button[type='button']:hover{
+                    cursor: pointer;
+                    background-color:#97acc9;
+                }
+                button[type='submit']:hover{
+                    cursor: pointer;
+                    background-color: #313131;
+                }
             }
             
             .col {

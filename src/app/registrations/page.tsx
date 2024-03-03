@@ -62,7 +62,7 @@ export default function Registrations() {
         <>
             <Header title='Página de Inscrição'/>
             <main className={Styles.userRegistration}>
-                <section className={`${Styles.formRegister} ${hour >= 6 && hour < 18 ? Styles.day : Styles.night}`}>
+                <section className={`${Styles.formRegister} ${hour >= 6 && hour < 11 ? Styles.day : Styles.night}`}>
                     <div className={Styles.headerSection}>
                         <h2>Preencha as Informações</h2>
                         <p>Forneça as credenciais necessárias para realizar sua inscrição.</p>
@@ -79,8 +79,8 @@ export default function Registrations() {
                             Afiliação<input type="text" name="afiliacoes" value={formData.afiliacoes} onChange={handleChange} />
                         </label>
                         <div className={Styles.buttonsRegister}>
-                            <Button text='Cancelar' color='#7C8EA6' link='/' type='button' />
-                            <Button text='Inscrever' color="black" type='submit' />
+                            <Button text='Cancelar'  link='/' type='button' />
+                            <Button text='Inscrever'  type='submit' />
                         </div>
                     </form>
                 </section>

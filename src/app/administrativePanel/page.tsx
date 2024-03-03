@@ -19,7 +19,7 @@ export default function adminstrativePanel() {
     return (
         <>
             <Header title='Painel Administrativo' />
-            <main className={`${Styles.adminstrativePanel} ${hour >= 6 && hour < 18 ? Styles.day : Styles.night}`}>
+            <main className={`${Styles.adminstrativePanel} ${hour >= 6 && hour < 11 ? Styles.day : Styles.night}`}>
                 <section className={Styles.panel}>
                     <div className={Styles.panels}>
                         <h2>Inscrições Realizadas</h2>
