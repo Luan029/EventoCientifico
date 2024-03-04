@@ -23,7 +23,7 @@ export default function RegisterArticles() {
     const handleInputChange = (event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
         const { name, value } = event.target;
         if (name === 'text' && value.length > 500) {
-            return; // não permite mais de 500 caracteres
+            return; 
         }
         setFormData(prevState => ({
             ...prevState,
@@ -84,7 +84,7 @@ export default function RegisterArticles() {
         <>
             <Header title='Submissão de Artigo' />
             <main className={Styles.userRegistration}>
-                <section className={`${Styles.formRegister} ${hour >= 6 && hour < 11 ? Styles.day : Styles.night}`}>
+                <section className={`${Styles.formRegister} ${hour >= 6 && hour < 18 ? Styles.day : Styles.night}`}>
                     <div className={Styles.headerSection}>
                         <h2>Submeta seu Artigo</h2>
                         <p>Forneça as credenciais necessárias para realizar a submissão do artigo.</p>

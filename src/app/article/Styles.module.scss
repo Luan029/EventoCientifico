@@ -121,7 +121,12 @@ $cor6: #010326;
                     width: 100%;
                     display: flex;
                     justify-content: space-between;
+                    i:hover{
+                        color: red;
+                        cursor: pointer;
+                    }
                 }
+
             }
         }
     }

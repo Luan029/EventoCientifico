@@ -9,7 +9,7 @@ export default function Header(props: Readonly<{ title: string }>) {
     const hour = Clock()
 
     return (
-        <header className={`${Styles.header} ${hour >= 6 && hour < 11 ? Styles.day : Styles.night}`}>
+        <header className={`${Styles.header} ${hour >= 6 && hour < 18 ? Styles.day : Styles.night}`}>
             <div className={Styles.logo} >
                 <Link href={'/'} className={`${Styles.link}`}>Clima em Foco</Link>
             </div>
